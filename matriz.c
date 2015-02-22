@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "entradatexto.h"
-int tot(),x,c;
-float h,v1,v2;
+int tot(),x,c,h;
+float v1,v2;
 char na;
 FILE *f;
 int main(){
@@ -10,8 +10,8 @@ int main(){
     float arreglo[x][2];
     f = fopen("datos.txt","r");
     while((h = fgetc(f))!=EOF){
-        fscanf(f, "%f %f", &v1, &v2);
-        while(c<=x){
+        fscanf(f, "%f %f ", &v1, &v2);
+        if(c<x && h!=92){
             arreglo[c][0] = v1;
             arreglo[c][1] = v2;
             printf("%f %f\n", arreglo[c][0], arreglo[c][1]);
