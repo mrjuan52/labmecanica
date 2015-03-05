@@ -85,6 +85,6 @@ int main(){
     printf("r= %f\n",corr);
     //Error en la pendiente
     Em=EMinCuaM(arreglo,x);
-    printf("Error en m: %.20f\n",Em);
+    printf("Error en m: %f\n",Em);
     fclose(f);
 }

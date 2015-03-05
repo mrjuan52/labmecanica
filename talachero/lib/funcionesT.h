@@ -138,7 +138,7 @@ float correlacion(float arreglo[][2], int x)
 
 float EMinCuaM(float arreglo[][2], int x)
 	{
-	float Em,m,sumax,sumax2,dy,sumady2,b;
+	float Em,em1,em2,m,sumax,sumax2,dy,sumady2,b,sumady2p,em1p;
 	sumax=0;
 	sumax2=0;
 	sumady2=0;
@@ -147,12 +147,18 @@ float EMinCuaM(float arreglo[][2], int x)
 	int k;
 	for (k=0;k<x;k++)
 		{
-		dy=(m*arreglo[k][0])+b-arreglo[k][1];
+		dy=((m*arreglo[k][0])+(b-arreglo[k][1]));
 		sumax+=arreglo[k][0];
-		sumax2+=arreglo[k][0]*arreglo[k][0];
-		sumady2+=dy*dy;
+		sumax2+=pow(arreglo[k][0],2);
+		sumady2+=pow(dy,2);
+        //printf("%f\n",sumady2);
 		}
-	printf("%f %f %f %f\n",sumax,sumax2,dy,sumady2);
-	Em=sqrt((1/(x-2))*(sumady2))*sqrt((x)/((x*sumax2)-(sumax*sumax)));
+	//printf("%f %f %f %f %i\n",sumax,sumax2,dy,sumady2,x); 
+        sumady2p=sumady2;
+        em1=(sqrt(1)/sqrt((x-2)))*sqrt((sumady2p))*sqrt(x/((x*sumax2)-pow(sumax,2)));
+	//em2=sqrt(x/((x*sumax2)-pow(sumax,2)));
+        Em=(sqrt(1)/sqrt((x-2)))*sqrt((sumady2p))*sqrt(x/((x*sumax2)-pow(sumax,2)));
+        //printf("%f %f %f\n",em1, em1p, em2);
+        
 	return(Em);
 	}
