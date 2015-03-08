@@ -155,10 +155,30 @@ float EMinCuaM(float arreglo[][2], int x)
 		}
 	//printf("%f %f %f %f %i\n",sumax,sumax2,dy,sumady2,x); 
         sumady2p=sumady2;
-        em1=(sqrt(1)/sqrt((x-2)))*sqrt((sumady2p))*sqrt(x/((x*sumax2)-pow(sumax,2)));
+       // em1=(sqrt(1)/sqrt((x-2)))*sqrt((sumady2p))*sqrt(x/((x*sumax2)-pow(sumax,2)));
 	//em2=sqrt(x/((x*sumax2)-pow(sumax,2)));
         Em=(sqrt(1)/sqrt((x-2)))*sqrt((sumady2p))*sqrt(x/((x*sumax2)-pow(sumax,2)));
         //printf("%f %f %f\n",em1, em1p, em2);
         
 	return(Em);
 	}
+float EMinCuaB(float arreglo[][2],int x){
+    
+    float sumabx,sumabx2,sumabdy2,m1,b1,bdy,eb;
+    sumabx=0;
+    sumabx2=0;
+    sumabdy2=0;
+    m1=MinCuaM(arreglo,x);
+    b1=MinCuaB(arreglo,x);
+    int pa;
+    pa=0;
+    while(pa<x){
+        bdy=((m1*arreglo[pa][0])+(b1-arreglo[pa][1]));
+        sumabx+=arreglo[pa][0];
+        sumabx2+=pow(arreglo[pa][0],2);
+        sumabdy2+=pow(bdy,2);
+        pa++;
+    }
+    eb=(sqrt(1)/sqrt((x-2)))*sqrt((sumabdy2))*(sqrt(sumabx2)/sqrt((x*sumabx2)-pow(sumabx,2)));
+    return(eb);
+}

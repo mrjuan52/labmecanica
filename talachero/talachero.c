@@ -5,7 +5,7 @@
 #include "./lib/funcionesT.h"
 
 int tot(),x,c,h,H,k;
-float v1,v2,p,var,des,err,m,b,corr,Em;
+float v1,v2,p,var,des,err,m,b,corr,Em,eb;
 char l[80],d[65],V1,V2,V[5];
 FILE *f;
 int main(){
@@ -82,9 +82,11 @@ int main(){
     printf("b= %f\n",b);
     //coeficiente de correlacion
     corr=correlacion(arreglo,x);
-    printf("r= %f\n",corr);
+    printf("P= %f\n",corr);
     //Error en la pendiente
     Em=EMinCuaM(arreglo,x);
-    printf("Error en m: %f\n",Em);
+    printf("Error en m= %f\n",Em);
+    eb=EMinCuaB(arreglo,x);
+    printf("Error en b= %f\n", eb);
     fclose(f);
 }

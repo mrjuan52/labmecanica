@@ -8,6 +8,8 @@ int tot(void){
     f = fopen("datos.txt","r");
     if (f == NULL){
         printf("\nError de apertura. \n\n");
+        fclose(f);
+        exit(0);
     }else{
         while((ch = fgetc(f))!= EOF){
             if(ch=='\n'){
