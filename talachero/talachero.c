@@ -5,7 +5,7 @@
 #include "./lib/funcionesT.h"
 
 int tot(),x,c,h,H,k;
-float v1,v2,p,var,des,err,m,b,corr,Em,eb;
+float v1,v2,p,var,des,err,m,b,corr,Em,eb,X;
 char l[80],d[65],V1,V2,V[5];
 FILE *f;
 int main(){
@@ -86,7 +86,11 @@ int main(){
     //Error en la pendiente
     Em=EMinCuaM(arreglo,x);
     printf("Error en m= %f\n",Em);
+    //Error en la ordenada al origen
     eb=EMinCuaB(arreglo,x);
     printf("Error en b= %f\n", eb);
+    //Chi cuadrada
+    X=chi2(arreglo,x);
+    printf("X²= %f\n",X);
     fclose(f);
 }
