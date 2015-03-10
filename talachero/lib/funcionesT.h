@@ -182,3 +182,19 @@ float EMinCuaB(float arreglo[][2],int x){
     eb=(sqrt(1)/sqrt((x-2)))*sqrt((sumabdy2))*(sqrt(sumabx2)/sqrt((x*sumabx2)-pow(sumabx,2)));
     return(eb);
 }
+
+float chi2(float arreglo[][2],int x)
+{
+	float m,b,X,suma,var;
+	int k;
+	suma=0;
+	m=MinCuaM(arreglo,x);
+	b=MinCuaB(arreglo,x);
+	var=varianza(arreglo,x,1);
+	for (k=1;k<x;k++)
+	{
+		suma+=pow(((m*arreglo[k][0]+b)-arreglo[k][1]),2);
+	}
+	X=((suma)/(x*var));
+	return (X);
+}
