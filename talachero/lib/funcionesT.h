@@ -193,8 +193,8 @@ float chi2(float arreglo[][2],int x)
 	var=varianza(arreglo,x,1);
 	for (k=1;k<x;k++)
 	{
-		suma+=pow(((m*arreglo[k][0]+b)-arreglo[k][1]),2);
+        suma+=pow(((m*arreglo[k][0]+b)-arreglo[k][1]),2);
 	}
-	X=((suma)/(x*var));
+	X=((suma)/var);
 	return (X);
 }
