@@ -1,5 +1,5 @@
 Frecuencia del estroboscopio
-2 000 RPM
+2 000 RPM --> 33.33333 revoluciones por segundo --> cada 0.03 segundos da 1 revolución.
 Medida de la mesa 179cm+-0.1
 Tiempo camara 1.5"
 ISO 1800
